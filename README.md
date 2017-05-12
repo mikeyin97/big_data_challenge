@@ -1,7 +1,6 @@
 # big_data_challenge 
-## May 2017 Independent Research Project 
-## Tuberculosis Patterns in Comparison to Income, Weather, Demographics, Location
+## May 2017 Independent Research Project - Tuberculosis Patterns in Comparison to Income, Weather, Demographics, Location
 
-## Introduction
+### Introduction
 
-### What is tuberculosis?
+#### What is tuberculosis?
