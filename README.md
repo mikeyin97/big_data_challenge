@@ -12,6 +12,8 @@ Slow division - divides each 16-20 hours
 Have an outer membrane lipid bilayer
 Can sithstand weak disinfectants and survive in a dry state. 
 
+![alt text](https://www-tc.pbs.org/wgbh/nova/next/wp-content/uploads/2015/07/Mycobacterium-tuberculosis.jpg)
+
 Sometimes infection spreads outside lungs (15-20%) - causing other kinds of TB
 Spread to lymph nodes common - may cause ulcers. 
 
