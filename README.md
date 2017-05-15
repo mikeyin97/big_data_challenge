@@ -7,9 +7,9 @@
 #### What is tuberculosis?
 
 
-Sources: 
+#####Sources: 
 
-https://en.wikipedia.org/wiki/Tuberculosis
-https://www.canada.ca/en/public-health/services/diseases/tuberculosis-tb.html
-http://www.mayoclinic.org/diseases-conditions/tuberculosis/home/ovc-20188556
-http://www.webmd.com/lung/understanding-tuberculosis-basics
+*https://en.wikipedia.org/wiki/Tuberculosis
+*https://www.canada.ca/en/public-health/services/diseases/tuberculosis-tb.html
+*http://www.mayoclinic.org/diseases-conditions/tuberculosis/home/ovc-20188556
+*http://www.webmd.com/lung/understanding-tuberculosis-basics
