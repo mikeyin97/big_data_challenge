@@ -18,5 +18,12 @@ module_dir = os.path.realpath(os.path.dirname(module_path))
 
 #Making Dataframe
 df = pd.read_csv(module_dir+'/datasets/TB_burden_countries_2017-05-16.csv')
+print(df.describe())
+print(df.columns.values)
+
+#Dataframe Testing
+df2 = df[["iso2", "e_pop_num"]]
+print(df2)
+
 
 
