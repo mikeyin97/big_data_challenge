@@ -1,15 +1,9 @@
 
 #Importing Relevant Libraries
-import matplotlib.pyplot as plt
 import pandas as pd
-import random
-import datetime
 import numpy as np
-import math
-import cv2
 import os
 import inspect
-import os
 
 #Setting Path
 module_path = inspect.getfile(inspect.currentframe())
@@ -24,6 +18,8 @@ print(df.columns.values)
 #Dataframe Testing
 df2 = df[["iso2", "e_pop_num"]]
 print(df2)
+
+
 
 
 
