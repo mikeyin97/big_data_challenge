@@ -12,9 +12,9 @@ def log(column):        #takes the natural log of each value of the input column
     return (np.log2(column))
     
 # Constant Variables
-colors = ["b", "g", "r", "c", "m", "y", "k", "#22ff00"] #Colour List
-xmin, xmax, ymin, ymax = -2, 15, -2, 12
-pause_time = 0.5
+colors = ["b", "g", "r", "c", "m", "y", "k", "#22ff00"]         # Colour List to cycle
+xmin, xmax, ymin, ymax = -2, 15, -2, 12                         # Axes Parameters
+pause_time = 0.5                                                # Time between graph cycles
 
 # Setting Directory Path
 module_path = inspect.getfile(inspect.currentframe())
@@ -48,8 +48,8 @@ logval2 = log(result['e_inc_100k'])
 plt.figure(1)
 plt.axis((xmin,xmax, ymin, ymax))
 plt.scatter(logval, logval2)
-plt.xlabel("logval pop dens")
-plt.ylabel("logval incidence/100k")
+plt.xlabel("log pop dens")
+plt.ylabel("log incidence/100k")
 plt.show()
 
 # Generate a List of Relevant Years
@@ -63,8 +63,8 @@ while True:
         plt.title(year)
         plt.plot(log(result_by_year["Population Density"]),log(result_by_year['e_inc_100k']), "x", color=colors[(year-2000)%len(colors)])
         plt.axis((xmin,xmax, ymin, ymax))
-        plt.xlabel("logval pop dens")
-        plt.ylabel("logval incidence/100k")
+        plt.xlabel("log pop dens")
+        plt.ylabel("log incidence/100k")
         plt.draw()
         plt.pause(pause_time)
         plt.clf() #I have yet to figure out how to exit this loop

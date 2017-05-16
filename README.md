@@ -5,52 +5,55 @@
 ### Introduction
 
 #### What is tuberculosis?
-An infectious disease caused by bacterium Mycobacterium tuberculosis, 
-a small, aerobic, nonmotile bacillus.  most common in lungs
-High lipid content. 
-Slow division - divides each 16-20 hours
-Have an outer membrane lipid bilayer
-Can sithstand weak disinfectants and survive in a dry state. 
+Tuberculosis (TB) is an infectious disease traced to the bacterium *Mycobacterium tuberculosis*, a small
+aerobic, and nonmotile bacillus. Some characteristics of this bacterium include high lipid content, slow division
+(divides every 16-20 hours), outer membrance lipid bilayer, and adaptability to extreme conditions. 
+Tuberculosis most often affects the lungs (pulmonary tuberculosis), but
+in approximately 15-20% of cases, it spreads outside the lungs to other parts of the body (extrapulmonary tuberculosis. 
+Spread to the lymph nodes is especially common in these cases. 
+An infection of *Mycobacterium tuberculosis* does not always lead to active tuberculosis. Often, people infected by the
+bacteria exhibit no symptoms and are not a source of infectional spread. In this case, the patient is diagnosed with latent tuberculosis 
+(of which 10% go on to develop active tuberculosis)
 
-![alt text](https://www-tc.pbs.org/wgbh/nova/next/wp-content/uploads/2015/07/Mycobacterium-tuberculosis.jpg)
+<img align="right" src="images/tb.jpg" width=50%>
 
-Sometimes infection spreads outside lungs (15-20%) - causing other kinds of TB
-Spread to lymph nodes common - may cause ulcers. 
+#### Signs and Symptoms
+There are many symptoms associated with active tuberculosis. They include:
+* Chronic coughing with blood
+* Fever
+* Night Sweats
+* Weight Loss
+* Loss of Appetite
+* Fatigue
+* Chest Pain
+* Erosion of a pulmonary artery (**RARE**)
+* Erosion Rasmussen's aneurysm (**RARE**)
 
-Affects the lungs, but can affect the lungs but also other parts of the body.
+#### Causes, Risks and Spread
+Tuberculosis is caused by the spread of bacteria between because through aerial droplet movement of the fluids of a
+person infected with active tuberculosis, such as through coughing, spitting, speaking, sneezing, etc. 
 
-Often no symptoms - latent tuberculosis -> progress to active disease which if untreated kills half
-of those infected
+Some risk factors that increase the chances of contracting tuberculosis are:
+* HIV/AIDS infection (13% of all people with TB also have HIV/AIDS) 
+* Ethnic Minorities (80% of people in Asian and African countries will test positive for TB)
+* Smoking
+* Malnutrition
+* Living in an overcrowded environment
+* Drug injection
+* Alcoholism
+* Diabetes
+* Working or living in proximity to vulnerable people
 
-Symptoms
-Symptoms are active TV are chronic cough with 
-clood, fever, night sweats and weight loss. 
-fever, chills, night sweats, loss of appetite, weight loss, fatigue. 
-Chest pain
-Rare case - erosion of a pulmonary artery or a Rasmussen's aneurysm resulting in massive cleeding. 
+#### Diagnosis
+Tuberculosis is diagnosed with a variety of medical techniques. Some of the common ones include chest x-rays and microscopic
+examination of bodily fluids. Of the latter variety, the common analysis methods used include tuberculin skin test, blood tests,
+or histological phlegm stains (using the Ziehl-Neelsen Stain or the Kinyoun Stain)
 
+#### Treatment
 
-Causes, Risks and Spread
-Spread through the air (cough, spit, speak, sneeze), unless latent
-More often for people with HIV/AIDS (13% of all people with TB are infected by virus) and those that smoke
- Overcrowding and malnutrition
- people who inject drugs, inhabitants and employees of vulnerable people, medically underprivileged and resource-poor communities, 
- high-risk ethnic minorities, children in close contact with high-risk category patients, and health care providers
- Chronic long disease
- Alcoholism, diabetes
- 
-
- 
-Diagnosis
-Chest X-rays, microscopic examination of body fluids
-Tuberculin skin test (TST) or blood tests
-Histological stains from phlegm - can identify MTB (ziehl neelsen stain and kinyoun stain are the most common)
-
-
-Stats
+#### Stats
 In 2014, 9.6 million cases of active TB which resulted 1.5 million deaths. 
 Common in developing countries
 Decreases steadily year by year
-80% of asian and african countries test positive for TB, 5-10% in US. 
 
 
