@@ -2,9 +2,18 @@
 
 ## Tuberculosis Patterns in Comparison to Income, Weather, Demographics, Location
 
-### Introduction
+### Table of Contents
+1. [Introduction](#Introduction)
+    a. [What is tuberculosis?](#subparagraph1)
+    b. [Signs and Symptoms](#subparagraph2)
+    c. [Causes, Risks and Spread](#subparagraph3)
+    d. [Diagnosis](#subparagraph4)
+    e. [Treatment](#subparagraph5)
+    f. [Stats](#subparagraph6)
 
-#### What is tuberculosis?
+### Introduction <a name="introduction"></a>
+
+#### What is tuberculosis? <a name="subparagraph1"></a>
 Tuberculosis (TB) is an infectious disease traced to the bacterium *Mycobacterium tuberculosis*, a small
 aerobic, and nonmotile bacillus. Some characteristics of this bacterium include high lipid content, slow division
 (divides every 16-20 hours), outer membrance lipid bilayer, and adaptability to extreme conditions. 
@@ -17,7 +26,7 @@ bacteria exhibit no symptoms and are not a source of infectional spread. In this
 
 <img align="right" src="images/tb.jpg" width=50%>
 
-#### Signs and Symptoms
+#### Signs and Symptoms <a name="subparagraph2"></a>
 There are many symptoms associated with active tuberculosis. They include:
 * Chronic coughing with blood
 * Fever
@@ -29,7 +38,7 @@ There are many symptoms associated with active tuberculosis. They include:
 * Erosion of a pulmonary artery (**RARE**)
 * Erosion Rasmussen's aneurysm (**RARE**)
 
-#### Causes, Risks and Spread
+#### Causes, Risks and Spread <a name="subparagraph3"></a>
 Tuberculosis is caused by the spread of bacteria between because through aerial droplet movement of the fluids of a
 person infected with active tuberculosis, such as through coughing, spitting, speaking, sneezing, etc. 
 
@@ -44,14 +53,14 @@ Some risk factors that increase the chances of contracting tuberculosis are:
 * Diabetes
 * Working or living in proximity to vulnerable people
 
-#### Diagnosis
+#### Diagnosis <a name="subparagraph4"></a>
 Tuberculosis is diagnosed with a variety of medical techniques. Some of the common ones include chest x-rays and microscopic
 examination of bodily fluids. Of the latter variety, the common analysis methods used include tuberculin skin test, blood tests,
 or histological phlegm stains (using the Ziehl-Neelsen Stain or the Kinyoun Stain)
 
-#### Treatment
+#### Treatment <a name="subparagraph5"></a>
 
-#### Stats
+#### Stats <a name="subparagraph6"></a>
 In 2014, 9.6 million cases of active TB which resulted 1.5 million deaths. 
 Common in developing countries
 Decreases steadily year by year
