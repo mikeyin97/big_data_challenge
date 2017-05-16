@@ -4,12 +4,12 @@
 
 ### Table of Contents
 1. [Introduction](#Introduction)
-    a. [What is tuberculosis?](#subparagraph1)
-    b. [Signs and Symptoms](#subparagraph2)
-    c. [Causes, Risks and Spread](#subparagraph3)
-    d. [Diagnosis](#subparagraph4)
-    e. [Treatment](#subparagraph5)
-    f. [Stats](#subparagraph6)
+    1. [What is tuberculosis?](#subparagraph1)
+    2. [Signs and Symptoms](#subparagraph2)
+    3. [Causes, Risks and Spread](#subparagraph3)
+    4. [Diagnosis](#subparagraph4)
+    5. [Treatment](#subparagraph5)
+    6. [Stats](#subparagraph6)
 
 ### Introduction <a name="introduction"></a>
 
