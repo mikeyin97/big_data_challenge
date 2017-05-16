@@ -5,7 +5,12 @@ import numpy as np
 import os
 import inspect
 import matplotlib.pyplot as plt
+import cv2
+plt.ion()
 
+#taking a log
+def log(column):
+    return (np.log2(column))
 
 #Setting Path
 module_path = inspect.getfile(inspect.currentframe())
@@ -31,14 +36,35 @@ pop_den_data_less['year'] = pop_den_data_less['year'].astype(int)
 
 #Join dataframes
 result = pd.merge(pop_den_data_less, tb_data_less, on=['year', 'iso3'])
-log = (np.log(result["Population Density"]))
-log2 = (np.log(result['e_inc_100k']))
+logval = log(result["Population Density"])
+logval2 = log(result['e_inc_100k'])
 
 #plot
-plt.scatter(log, log2)
-plt.xlabel("log pop dens")
-plt.ylabel("log incidence/100k")
+plt.figure(1)
+plt.scatter(logval, logval2)
+plt.xlabel("logval pop dens")
+plt.ylabel("logval incidence/100k")
 plt.show()
+
+#list of years
+years = list(range(min(result["year"]), max(result["year"])+1))
+colors = ["b", "g", "r", "c", "m", "y", "k", "#eeefff"]
+
+#plot by years
+plt.figure(2)
+
+while True:
+    for year in years:
+        result_by_year = result[result['year'] == year]
+        plt.title(year)
+        plt.plot(log(result_by_year["Population Density"]),log(result_by_year['e_inc_100k']), "x", color=colors[(year-2000)%7])
+        plt.axis((0,15,0,12))
+        plt.draw()
+        plt.pause(0.1)
+        plt.clf()
+
+
+
 
 #Testing
 #print(pop_den_data.shape)
