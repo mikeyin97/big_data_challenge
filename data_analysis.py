@@ -1,68 +1,74 @@
-
-#Importing Relevant Libraries
+# Importing Relevant Libraries
 import pandas as pd
 import numpy as np
 import os
 import inspect
 import matplotlib.pyplot as plt
-import cv2
+from sklearn import datasets, linear_model
 plt.ion()
 
-#taking a log
-def log(column):
+# Function Definitions
+def log(column):        #takes the natural log of each value of the input column
     return (np.log2(column))
+    
+# Constant Variables
+colors = ["b", "g", "r", "c", "m", "y", "k", "#22ff00"] #Colour List
+xmin, xmax, ymin, ymax = -2, 15, -2, 12
+pause_time = 0.5
 
-#Setting Path
+# Setting Directory Path
 module_path = inspect.getfile(inspect.currentframe())
 module_dir = os.path.realpath(os.path.dirname(module_path))
 
-#Making Dataframes
+# Generating Dataframes for TB and Population Density Data
 tb_data = pd.read_csv(module_dir+'/datasets/TB_burden_countries_2017-05-16.csv')
 pop_den_data = pd.read_csv(module_dir+'/datasets/Pop_dens_by_country.csv', encoding="cp1252")
 
-#Dataframe Selection
+# Dataframe Selection of Relevant Columns
 tb_data_less = tb_data[["iso3", "year", "e_inc_100k"]]
 pop_den_data_less = pop_den_data[["Country Code", "2000", "2001", "2002", "2003", 
 "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013",
 "2014", "2015"]]
 #print(pop_den_data_less)
 
-#Match pop den df to shape of tb data df -> verticalize years
+# Match Population Density DF to Shape of TB Data DF -> Make the Years column
+# into a Variable
 pop_den_data_less = pd.melt(pop_den_data_less, id_vars=["Country Code"], 
                   var_name="Year", value_name="Population Density")
 pop_den_data_less = pop_den_data_less.sort(['Country Code', 'Year'], ascending=True)
 pop_den_data_less = pop_den_data_less.rename(columns={'Country Code': 'iso3', 'Year': 'year'})
 pop_den_data_less['year'] = pop_den_data_less['year'].astype(int)
 
-#Join dataframes
+# Join Dataframes at Common Year and Country Code
 result = pd.merge(pop_den_data_less, tb_data_less, on=['year', 'iso3'])
+
+# Take the Log Values and Plot
 logval = log(result["Population Density"])
 logval2 = log(result['e_inc_100k'])
-
-#plot
 plt.figure(1)
+plt.axis((xmin,xmax, ymin, ymax))
 plt.scatter(logval, logval2)
 plt.xlabel("logval pop dens")
 plt.ylabel("logval incidence/100k")
 plt.show()
 
-#list of years
+# Generate a List of Relevant Years
 years = list(range(min(result["year"]), max(result["year"])+1))
-colors = ["b", "g", "r", "c", "m", "y", "k", "#eeefff"]
 
-#plot by years
+# Animate the Plot Year over Year
 plt.figure(2)
-
 while True:
     for year in years:
         result_by_year = result[result['year'] == year]
         plt.title(year)
-        plt.plot(log(result_by_year["Population Density"]),log(result_by_year['e_inc_100k']), "x", color=colors[(year-2000)%7])
-        plt.axis((0,15,0,12))
+        plt.plot(log(result_by_year["Population Density"]),log(result_by_year['e_inc_100k']), "x", color=colors[(year-2000)%len(colors)])
+        plt.axis((xmin,xmax, ymin, ymax))
+        plt.xlabel("logval pop dens")
+        plt.ylabel("logval incidence/100k")
         plt.draw()
-        plt.pause(0.1)
-        plt.clf()
-
+        plt.pause(pause_time)
+        plt.clf() #I have yet to figure out how to exit this loop
+plt.close()
 
 
 
