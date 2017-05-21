@@ -14,7 +14,9 @@ def log(column):        #takes the natural log of each value of the input column
     
 # Constant Variables
 colors = ["b", "g", "r", "c", "m", "y", "k", "#22ff00"]         # Colour List to cycle
-xmin, xmax, ymin, ymax = -2, 20, -2, 12                         # Axes Parameters
+axis_pop_dens = (-2, 20, -2, 12)                         # Axes Parameters
+axis_health_exp = (-6, 25, -5, 25)
+axis_gdp = (0, 20, -2, 20)
 pause_time = 0.5                                                # Time between graph cycles
 
 # Setting Directory Path
@@ -63,14 +65,14 @@ result = pd.merge(result, gdp_data_less, on= ["Countries", "year"])
 print(result.iloc[0])
 
 # Take the Log Values and Plot
-logval = log(result["Population Density"])
+"""logval = log(result["Population Density"])
 logval2 = log(result['e_inc_100k'])
 plt.figure(1)
 plt.axis((xmin,xmax,ymin,ymax))
 plt.scatter(logval, logval2)
 plt.xlabel("log pop dens")
 plt.ylabel("log incidence/100k")
-plt.show()
+plt.show()"""
 
 # Generate a List of Relevant Years
 years = list(range(min(result["year"]), max(result["year"])+1))
@@ -97,7 +99,7 @@ for i in (result["g_whoregion"]):
 result["color"] = pd.DataFrame(region_list)
 
 # Animate the Plot Year over Year
-plt.figure(2)
+"""plt.figure(2)
 blue_patch = mpatches.Patch(color='b', label='Europe')
 green_patch = mpatches.Patch(color='g', label='Africa')
 red_patch = mpatches.Patch(color='r', label='Americas')
@@ -105,7 +107,7 @@ cyan_patch = mpatches.Patch(color='c', label='Western Pacific')
 mag_patch = mpatches.Patch(color='m', label='Eastern Mediterranean')
 yel_patch = mpatches.Patch(color='y', label='Southeast Asia')
 
-def animate_plot(col):
+def animate_plot(col, axes):
     while True:
         for year in years:
             plt.legend(handles=[blue_patch, green_patch, red_patch, cyan_patch, mag_patch, yel_patch])
@@ -113,27 +115,77 @@ def animate_plot(col):
             plt.title(year)
             #plt.plot(log(result_by_year[col]),log(result_by_year['e_inc_100k']), "x", color=colors[(year-2000)%len(colors)])
             plt.scatter(x = log(result_by_year[col]), y = log(result_by_year['e_inc_100k']), c = result["color"].values.tolist(), alpha = 0.8)
-            plt.axis((xmin,xmax, ymin, ymax))
+            plt.axis(axes)
             plt.xlabel("log pop dens")
             plt.ylabel("log incidence/100k")
             plt.draw()
             plt.pause(pause_time)
             plt.clf() #I have yet to figure out how to exit this loop
-plt.figure(2)
-animate_plot("Population Density")
 
-#xmin, xmax, ymin, ymax = -2, 15, -2, 20
-#plt.figure(3)
-#animate_plot('Health Expenditure per capita')
+#plt.figure(2)
+#animate_plot("Population Density", axis_pop_dens)
 
-#xmin, xmax, ymin, ymax = 6, 25, -5, 25
+plt.figure(3)
+animate_plot('Health Expenditure per capita', axis_health_exp)
+
 #plt.figure(4)
-#animate_plot('GDP per capita')
+#animate_plot('GDP per capita', axis_gdp)
+"""
 
-# Seperate Population Density by Region
+# All 3?
+def animate_one(col, size):
+    plt.legend(handles=[blue_patch, green_patch, red_patch, cyan_patch, mag_patch, yel_patch])
+    result_by_year = result[result['year'] == year]
+    plt.title(str(year) + " " + col)
+    plt.scatter(x = log(result_by_year[col]), y = log(result_by_year['e_inc_100k']), c = result["color"].values.tolist(), alpha = 0.8)
+    plt.axis(size)
+    plt.xlabel("log " + col)
+    plt.ylabel("log incidence/100k")
+    plt.draw()
+    
+blue_patch = mpatches.Patch(color='b', label='Europe')
+green_patch = mpatches.Patch(color='g', label='Africa')
+red_patch = mpatches.Patch(color='r', label='Americas')
+cyan_patch = mpatches.Patch(color='c', label='Western Pacific')
+mag_patch = mpatches.Patch(color='m', label='Eastern Mediterranean')
+yel_patch = mpatches.Patch(color='y', label='Southeast Asia')
 
+"""while True:
+    for year in years:
+        plt.figure(2)
+        animate_one("Population Density", axis_pop_dens)
+        plt.figure(3)
+        animate_one("Health Expenditure per capita", axis_health_exp)
+        plt.figure(4)
+        animate_one("GDP per capita", axis_gdp)
+        plt.pause(pause_time)
+        plt.figure(2)
+        plt.clf() 
+        plt.figure(3)
+        plt.clf() 
+        plt.figure(4)
+        plt.clf() """
 
-
+try:
+    while True:
+        for year in years:
+            plt.figure(2)
+            animate_one("Population Density", axis_pop_dens)
+            plt.figure(3)
+            animate_one("Health Expenditure per capita", axis_health_exp)
+            plt.figure(4)
+            animate_one("GDP per capita", axis_gdp)
+            plt.pause(pause_time)
+            plt.figure(2)
+            plt.clf() 
+            plt.figure(3)
+            plt.clf() 
+            plt.figure(4)
+            plt.clf() 
+except KeyboardInterrupt:
+    pass
+        
+       #plt.clf() 
 
 
 
