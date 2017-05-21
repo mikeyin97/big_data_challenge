@@ -1,5 +1,11 @@
 ## May 2017 Independent Research Project 
 
+## Useful Statistic Techniques
+* Sample size verification 
+* Regression
+* Mean, standard deviation
+* Hypothesis testing
+
 ## Tuberculosis Patterns in Comparison to Income, Weather, Demographics, Location
 
 ### Table of Contents
