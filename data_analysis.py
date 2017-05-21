@@ -4,6 +4,7 @@ import numpy as np
 import os
 import inspect
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 from sklearn import datasets, linear_model
 plt.ion()
 
@@ -13,7 +14,7 @@ def log(column):        #takes the natural log of each value of the input column
     
 # Constant Variables
 colors = ["b", "g", "r", "c", "m", "y", "k", "#22ff00"]         # Colour List to cycle
-xmin, xmax, ymin, ymax = -2, 15, -2, 12                         # Axes Parameters
+xmin, xmax, ymin, ymax = -2, 20, -2, 12                         # Axes Parameters
 pause_time = 0.5                                                # Time between graph cycles
 
 # Setting Directory Path
@@ -29,7 +30,7 @@ health_data = health_data.loc[1:]
 gdp_data = gdp_data[1:]
 
 # Dataframe Selection of Relevant Columns
-tb_data_less = tb_data[["iso3", "year", "e_inc_100k"]]
+tb_data_less = tb_data[["iso3", "year", "e_inc_100k", "g_whoregion"]]
 pop_den_data_less = pop_den_data[["Country Name", "Country Code", "2000", "2001", "2002", "2003", 
 "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013",
 "2014", "2015"]]
@@ -74,29 +75,62 @@ plt.show()
 # Generate a List of Relevant Years
 years = list(range(min(result["year"]), max(result["year"])+1))
 
+
+# Region Colors
+region_colors = ["b", "g", "r", "c", "m", "y", "w"]
+#set to white to isolate region 
+#print(result["g_whoregion"].value_counts())
+region_list = []
+for i in (result["g_whoregion"]):
+    if i == "EUR":
+        region_list.append(region_colors[0])
+    if i == "AFR":
+        region_list.append(region_colors[1])
+    if i == "AMR":
+        region_list.append(region_colors[2])
+    if i == "WPR":
+        region_list.append(region_colors[3])
+    if i == "EMR":
+        region_list.append(region_colors[4])
+    if i == "SEA":
+        region_list.append(region_colors[5])
+result["color"] = pd.DataFrame(region_list)
+
 # Animate the Plot Year over Year
+plt.figure(2)
+blue_patch = mpatches.Patch(color='b', label='Europe')
+green_patch = mpatches.Patch(color='g', label='Africa')
+red_patch = mpatches.Patch(color='r', label='Americas')
+cyan_patch = mpatches.Patch(color='c', label='Western Pacific')
+mag_patch = mpatches.Patch(color='m', label='Eastern Mediterranean')
+yel_patch = mpatches.Patch(color='y', label='Southeast Asia')
+
 def animate_plot(col):
     while True:
         for year in years:
+            plt.legend(handles=[blue_patch, green_patch, red_patch, cyan_patch, mag_patch, yel_patch])
             result_by_year = result[result['year'] == year]
             plt.title(year)
-            plt.plot(log(result_by_year[col]),log(result_by_year['e_inc_100k']), "x", color=colors[(year-2000)%len(colors)])
+            #plt.plot(log(result_by_year[col]),log(result_by_year['e_inc_100k']), "x", color=colors[(year-2000)%len(colors)])
+            plt.scatter(x = log(result_by_year[col]), y = log(result_by_year['e_inc_100k']), c = result["color"].values.tolist(), alpha = 0.8)
             plt.axis((xmin,xmax, ymin, ymax))
             plt.xlabel("log pop dens")
             plt.ylabel("log incidence/100k")
             plt.draw()
             plt.pause(pause_time)
             plt.clf() #I have yet to figure out how to exit this loop
-#plt.figure(2)
-#animate_plot("Population Density")
+plt.figure(2)
+animate_plot("Population Density")
 
-xmin, xmax, ymin, ymax = -2, 15, -2, 20
-plt.figure(3)
-animate_plot('Health Expenditure per capita')
+#xmin, xmax, ymin, ymax = -2, 15, -2, 20
+#plt.figure(3)
+#animate_plot('Health Expenditure per capita')
 
 #xmin, xmax, ymin, ymax = 6, 25, -5, 25
 #plt.figure(4)
 #animate_plot('GDP per capita')
+
+# Seperate Population Density by Region
 
 
 
