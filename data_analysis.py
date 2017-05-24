@@ -151,6 +151,7 @@ animate_plot('Health Expenditure per capita', axis_health_exp)
 """
 
 # All 3?
+"""
 try:
     while True:
         for year in years:
@@ -169,11 +170,48 @@ try:
             plt.clf() 
 except KeyboardInterrupt:
     plt.clf() 
+"""
+
+# 3D plot
+from mpl_toolkits.mplot3d import Axes3D
+fig = plt.figure(1)
 
 
+while True:
+    for year in years:
+        ax = fig.add_subplot(111, projection='3d')
+        plt.figure(1)
+        box = ax.get_position()
+        ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+        plt.legend(handles=[blue_patch, green_patch, red_patch, cyan_patch, mag_patch, yel_patch],bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+        result_by_year = result[result['year'] == year]
+        plt.title(str(year))
+        #print(np.log(result_by_year.iloc[[0,3],[3]].values+0.01).tolist()*1000)
+        for i in range(len(result_by_year["color"])):
+            ax.scatter(xs = np.log(result_by_year.iloc[[i],[8]].values+0.01).tolist(), 
+            ys = np.log(result_by_year.iloc[[i],[11]].values+0.01).tolist(), 
+            zs = np.log(result_by_year.iloc[[i],[4]].values+0.01).tolist(), 
+            c = result["color"][i],
+            s = np.log((result_by_year.iloc[[i],[3]].values+0.01).tolist())**2)
+        ax.set_xlabel('Health Expenditure per capita')
+        ax.set_ylabel('GDP per capita')
+        ax.set_zlabel('e_inc_100k')
+        plt.pause(pause_time)
+        plt.clf() 
+
+            
+"""
+    plt.legend(handles=[blue_patch, green_patch, red_patch, cyan_patch, mag_patch, yel_patch])
+    result_by_year = result[result['year'] == year]
+    plt.title(str(year) + " " + col)
+    plt.scatter(x = log(result_by_year[col]), y = log(result_by_year['e_inc_100k']), c = result["color"].values.tolist(), alpha = 0.8)
+    plt.axis(size)
+    plt.xlabel("log " + col)
+    plt.ylabel("log incidence/100k")
+    plt.draw()
 
 
-
+"""
 #Testing
 #print(pop_den_data.shape)
 #print(pop_den_data.columns.values)
